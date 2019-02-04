@@ -1,0 +1,7 @@
+Detail aplikasi:
+1. Users
+2. Categories
+3. Products
+4. Transactions
+5. API JNE
+6. Returs
