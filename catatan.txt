@@ -35,6 +35,22 @@ Detail aplikasi:
     - id
     - product_id
     - image_link
-7. Transactions
-8. API JNE
-9. Returs
+7. Cart
+    - id
+    - customer_id
+    - status
+8. Product Cart
+    - id
+    - cart_id
+    - product_id
+    - quantity
+9. Address
+    - id
+    - customer_id
+    - country
+    - postcode
+    - town
+    - address
+10. Transactions
+11. API JNE
+12. Returs
