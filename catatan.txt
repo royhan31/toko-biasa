@@ -12,25 +12,29 @@ Detail aplikasi:
 2. Categories
     - id
     - name
+
 3. Sub Categories
     - id
     - category_id
     - name
+
 4. Products
     - id
+    - category_id
+    - sub_category_id
     - name
-    - image
-    - jumlah
     - deskription
     - satuan
+    - set_lusin
     - lusin
     - set_grosir
     - grosir
     - trim
-    - category_id
-    - sub_category_id
     - flag
-
-5. Transactions
-6. API JNE
-7. Returs
+6. Products Image
+    - id
+    - product_id
+    - image_link
+7. Transactions
+8. API JNE
+9. Returs
