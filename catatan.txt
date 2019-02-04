@@ -1,7 +1,36 @@
 Detail aplikasi:
 1. Users
+    - id
+    - fullname
+    - username
+    - email
+    - password
+    - telephone
+    - address
+    - status
+
 2. Categories
-3. Products
-4. Transactions
-5. API JNE
-6. Returs
+    - id
+    - name
+3. Sub Categories
+    - id
+    - category_id
+    - name
+4. Products
+    - id
+    - name
+    - image
+    - jumlah
+    - deskription
+    - satuan
+    - lusin
+    - set_grosir
+    - grosir
+    - trim
+    - category_id
+    - sub_category_id
+    - flag
+
+5. Transactions
+6. API JNE
+7. Returs
