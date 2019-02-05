@@ -7,10 +7,11 @@
         <div class="card">
             <div class="card-body">
             <h4 class="card-title">Input Kategori</h4>
-            <form class="forms-sample">
+            <form class="forms-sample" action="{{ route('addcategory') }}" method="POST">
+                {{ csrf_field() }}
                 <div class="form-group">
                 <label for="exampleInputName1">Nama Kategori</label>
-                <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Nama Kategori">
                 </div>
                 <button type="submit" class="btn btn-primary mr-1" name="submit">Tambah</button>
             </form>
@@ -29,42 +30,25 @@
                   <tr>
                       <th>No.</th>
                       <th>Kategori</th>
-                      <th>Actions</th>
+                      <th>Pilihan</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>$3200</td>
-                      <td>
-                        <button class="btn btn-light"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>
-                        <button class="btn btn-light"><i class="mdi mdi-close text-danger"></i> Hapus</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>2</td>
-                      <td>2015/04/01</td>
-                      <td>
-                        <button class="btn btn-light"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>
-                        <button class="btn btn-light"><i class="mdi mdi-close text-danger"></i> Hapus</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>3</td>
-                      <td>2010/11/21</td>
-                      <td>
-                        <button class="btn btn-light"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>
-                        <button class="btn btn-light"><i class="mdi mdi-close text-danger"></i> Hapus</button>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>4</td>
-                      <td>2016/01/12</td>
-                      <td>
-                        <button class="btn btn-light"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>
-                        <button class="btn btn-light"><i class="mdi mdi-close text-danger"></i> Hapus</button>
-                      </td>
-                  </tr>
+                    @php($no = 1)
+
+                    @foreach ($categories as $category)
+
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $category->name }}</td>
+                        <td>
+                            <button class="btn btn-light"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>
+                            <button class="btn btn-light"><i class="mdi mdi-close text-danger"></i> Hapus</button>
+                        </td>
+                    </tr>
+
+                    @endforeach
+
                 </tbody>
               </table>
             </div>
