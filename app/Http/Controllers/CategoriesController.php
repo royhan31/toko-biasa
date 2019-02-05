@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoriesController extends Controller
 {
@@ -13,7 +14,18 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        return view('categories');
+        $categories = Category::all();
+
+        return view('categories', compact('categories'));
+    }
+
+    public function addCategory()
+    {
+        Category::create([
+            'name' => request('name')
+        ]);
+
+        return redirect('/category');
     }
 
     public function getSub()
