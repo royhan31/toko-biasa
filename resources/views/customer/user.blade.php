@@ -19,6 +19,7 @@
                       <th>Alamat</th>
                       <th>Terakhir Login</th>
                       <th>Status</th>
+                      <th>Pilihan</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,7 @@
                       <td>1</td>
                       <td>$3200</td>
                       <td>1</td>
+                      <td>$3200</td>
                       <td>$3200</td>
                       <td>
                         <button class="btn btn-light"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>
@@ -39,6 +41,7 @@
                         <td>$3200</td>
                         <td>1</td>
                         <td>$3200</td>
+                        <td>$3200</td>
                         <td>
                           <button class="btn btn-light"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>
                           <button class="btn btn-light"><i class="mdi mdi-close text-danger"></i> Hapus</button>
@@ -49,6 +52,7 @@
                             <td>1</td>
                             <td>$3200</td>
                             <td>1</td>
+                            <td>$3200</td>
                             <td>$3200</td>
                             <td>
                               <button class="btn btn-light"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>

@@ -16,7 +16,7 @@ class CategoriesController extends Controller
     {
         $categories = Category::all();
 
-        return view('categories', compact('categories'));
+        return view('category.categories', compact('categories'));
     }
 
     public function addCategory()
@@ -25,11 +25,13 @@ class CategoriesController extends Controller
             'name' => request('name')
         ]);
 
-        return redirect('/category');
+        return redirect('/category/categories');
     }
 
-    public function getSub()
+    public function editCategory($id)
     {
-        return view('sub_categories');
+        $categories = Category::find($id);
+
+        return view('categories', compact('categories'));
     }
 }

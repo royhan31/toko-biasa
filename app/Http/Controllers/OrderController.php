@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class OrderController extends Controller
 {
     public function __construct()
     {
@@ -13,11 +13,11 @@ class ProductController extends Controller
 
     public function index()
     {
-        return view('product.product');
+        return view('order.order');
     }
 
-    public function addProduct()
+    public function detail()
     {
-        return view('product.add_product');
+        return view('order.detail');
     }
 }

@@ -19,10 +19,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/category', 'CategoriesController@index')->name('category');
-Route::get('/sub_category', 'CategoriesController@getSub')->name('sub_category');
+Route::get('/category/categories', 'CategoriesController@index')->name('category.categories');
+Route::post('/category/categories', 'CategoriesController@addCategory')->name('category.addcategory');
+Route::get('/category/{id}/edit', 'CategoriesController@editCategory')->name('editcategory');
+Route::patch('/category/{id}/edit', 'CategoriesController@updateCategory')->name('updatecategory');
 
-Route::get('/product', 'ProductController@index')->name('product');
-Route::get('/add_product', 'ProductController@addProduct')->name('add_product');
+Route::get('/category/sub_category', 'SubCategoriesController@index')->name('category.sub_category');
+Route::post('/category/sub_category', 'SubCategoriesController@addSub')->name('category.addsub');
 
-Route::get('/user', 'UserController@index')->name('user');
+Route::get('/product/product', 'ProductController@index')->name('product.product');
+Route::get('/product/add_product', 'ProductController@addProduct')->name('product.add_product');
+
+Route::get('/customer/user', 'UserController@index')->name('customer.user');
+
+Route::get('/order/order', 'OrderController@index')->name('order.order');
+Route::get('/order/detail', 'OrderController@detail')->name('order.detail');
