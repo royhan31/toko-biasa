@@ -16,14 +16,14 @@
 
                     <div class="form-group">
                         <label for="exampleInputName1">Nama Kategori</label>
-                        <select class="form-control"  name=”category_id”>
-                            {{-- <option>PILIH KATEGORI</option> --}}
-                            @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <select class="form-control" name="category">
+                          <option>PILIH KATEGORI</option>
+                            @foreach ($data as $dat)
+                              <option value="{{ $dat->id }}">{{ $dat->name }}</option>
                             @endforeach
                         </select >
                     </div>
-                    <button type="submit" class="btn btn-primary mr-1" name="submit">Tambah</button>
+                    <button type="submit" class="btn btn-primary mr-1">Tambah</button>
                 </form>
                 </div>
             </div>
@@ -46,15 +46,19 @@
                   </tr>
                 </thead>
                 <tbody>
+                    @php($no = 1)
+
+                    @foreach ($data as $dat)
                   <tr>
-                      <td>1</td>
-                      <td>$3200</td>
-                      <td>$3200</td>
+                      <td>{{ $no++ }}</td>
+                      <td>{{ $dat->sub_name }}</td>
+                      <td>{{ $dat->name }}</td>
                       <td>
                         <button class="btn btn-light" data-toggle="modal" data-target="#edit"><i class="mdi mdi-tooltip-edit text-primary"></i> Edit</button>
                         <button class="btn btn-light"><i class="mdi mdi-close text-danger"></i> Hapus</button>
                       </td>
                   </tr>
+                    @endforeach
                 </tbody>
               </table>
             </div>
@@ -74,8 +78,8 @@
               </button>
             </div>
             <div class="modal-body">
-                <form class="forms-sample" action="#" method="POST">
-                    {{ csrf_field() }}
+              <form class="forms-sample" action="{{ route('category.addsub') }}" method="POST">
+                {{ csrf_field() }}
                     <div class="form-group">
                             <label for="exampleInputName1">Nama Sub Kategori</label>
                             <input type="text" class="form-control" name="name" id="exampleInputName1" placeholder="Sub Kategori">
@@ -84,10 +88,10 @@
                     <div class="form-group">
                         <label for="exampleInputName1">Nama Kategori</label>
                         <select class="form-control"  name=”category_id”>
-                            {{-- <option>PILIH KATEGORI</option> --}}
-                            @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
+                            <option>PILIH KATEGORI</option>
+                            {{-- @foreach ($data as $dat)
+                              <option value="{{ $dat->category_id }}">{{ $dat->sub_name }}</option>
+                            @endforeach --}}
                         </select >
                     </div>
                     <div class="text-center">

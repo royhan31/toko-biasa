@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\SubCategory;
 use App\Category;
 
@@ -15,23 +16,24 @@ class SubCategoriesController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
-        $subcategories = SubCategory::all();
+        // $categories = Category::all();
+        // $subcategories = SubCategory::all();
 
-        return view('category.sub_categories', compact('categories', 'subcategories'));
+        $data = DB::table('categories')
+                ->join('sub_categories', 'categories.id', '=', 'sub_categories.category_id')
+                ->select('categories.*', 'sub_categories.name as sub_name')->get();
+
+        return view('category.sub_categories', compact('data'));
     }
 
-    public function addSub()
+    public function addSub(Request $request)
     {
-        dd(request()->all());
-
         SubCategory::create([
-
-            'category_id' => request('category_id'),
-            'name' => request('name')
+            'category_id' => $request->category,
+            'name' => $request->name
         ]);
 
-         return redirect('category.sub_category');
+         return redirect()->back();
     }
 
 
